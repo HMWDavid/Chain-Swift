@@ -16,6 +16,8 @@
 		DEDA283D2CAA2D3700D47678 /* Chain_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDA283C2CAA2D3700D47678 /* Chain_SwiftTests.swift */; };
 		DEDA28472CAA2D3800D47678 /* Chain_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDA28462CAA2D3800D47678 /* Chain_SwiftUITests.swift */; };
 		DEDA28492CAA2D3800D47678 /* Chain_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDA28482CAA2D3800D47678 /* Chain_SwiftUITestsLaunchTests.swift */; };
+		DEDA28592CAA2DF200D47678 /* ZKChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDA28582CAA2DF200D47678 /* ZKChain.swift */; };
+		DEDA285B2CAA2E3500D47678 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDA285A2CAA2E3500D47678 /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		DEDA28422CAA2D3800D47678 /* Chain-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chain-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDA28462CAA2D3800D47678 /* Chain_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chain_SwiftUITests.swift; sourceTree = "<group>"; };
 		DEDA28482CAA2D3800D47678 /* Chain_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chain_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DEDA28582CAA2DF200D47678 /* ZKChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZKChain.swift; sourceTree = "<group>"; };
+		DEDA285A2CAA2E3500D47678 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				DEDA28252CAA2D3400D47678 /* AppDelegate.swift */,
 				DEDA28272CAA2D3400D47678 /* SceneDelegate.swift */,
 				DEDA28292CAA2D3400D47678 /* ViewController.swift */,
+				DEDA285A2CAA2E3500D47678 /* Student.swift */,
+				DEDA28552CAA2D4F00D47678 /* Chain-Swift */,
 				DEDA282B2CAA2D3400D47678 /* Main.storyboard */,
 				DEDA282E2CAA2D3700D47678 /* Assets.xcassets */,
 				DEDA28302CAA2D3700D47678 /* LaunchScreen.storyboard */,
@@ -125,6 +131,14 @@
 				DEDA28482CAA2D3800D47678 /* Chain_SwiftUITestsLaunchTests.swift */,
 			);
 			path = "Chain-SwiftUITests";
+			sourceTree = "<group>";
+		};
+		DEDA28552CAA2D4F00D47678 /* Chain-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				DEDA28582CAA2DF200D47678 /* ZKChain.swift */,
+			);
+			path = "Chain-Swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEDA28592CAA2DF200D47678 /* ZKChain.swift in Sources */,
 				DEDA282A2CAA2D3400D47678 /* ViewController.swift in Sources */,
 				DEDA28262CAA2D3400D47678 /* AppDelegate.swift in Sources */,
+				DEDA285B2CAA2E3500D47678 /* Student.swift in Sources */,
 				DEDA28282CAA2D3400D47678 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
