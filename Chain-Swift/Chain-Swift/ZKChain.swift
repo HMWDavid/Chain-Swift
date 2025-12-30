@@ -7,23 +7,45 @@
 
 import ObjectiveC
 
+// MARK: - 引用包装器：用于避免值类型的复制开销
+/// 内部使用的引用包装器，避免值类型在链式调用中的复制开销
+private final class ReferenceWrapper<T> {
+    var value: T
+    init(_ value: T) {
+        self.value = value
+    }
+}
+
 @dynamicMemberLookup
 public struct ZKSetter<Subject> {
     
-    public let subject: Subject
+    // 使用引用包装器存储 subject，避免值类型的复制开销
+    // 对于引用类型，这也避免了不必要的复制操作
+    private let subjectRef: ReferenceWrapper<Subject>
+    
+    public init(subject: Subject) {
+        self.subjectRef = ReferenceWrapper(subject)
+    }
+    
+    /// 获取真正的对象
+    public var subject: Subject {
+        return subjectRef.value
+    }
     
     subscript<Value>(dynamicMember keyPath: WritableKeyPath<Subject, Value>) -> ((Value) -> ZKSetter<Subject>) {
-        
-        // 获取到真正的对象
-        var subject = self.subject
-        
-        return { value in
-            // 把 value 指派给 subject
-            subject[keyPath: keyPath] = value
-            // 回传的类型是 ZKSetter 而不是 Subject
-            // 因为使用ZKSetter来链式，而不是 Subject 本身
-            return ZKSetter(subject: subject)
+        // 捕获引用包装器，避免复制 subject
+        return { [subjectRef] value in
+            // 直接修改引用包装器中的值，避免复制开销
+            subjectRef.value[keyPath: keyPath] = value
+            // 返回新的 ZKSetter，共享同一个引用包装器
+            // 这样在链式调用中不会产生多次复制
+            return ZKSetter(subjectRef: subjectRef)
         }
+    }
+    
+    // 私有初始化器，用于共享引用包装器（避免重复创建）
+    private init(subjectRef: ReferenceWrapper<Subject>) {
+        self.subjectRef = subjectRef
     }
 }
 
