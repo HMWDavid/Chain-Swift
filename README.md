@@ -22,6 +22,36 @@ ZKChain 经过性能优化，使用引用包装器技术避免了值类型在链
 
 ## 📦 安装
 
+### CocoaPods
+
+在您的 `Podfile` 中添加：
+
+```ruby
+pod 'Chain-Swift', '~> 1.0.0'
+```
+
+然后运行：
+
+```bash
+pod install
+```
+
+### Carthage
+
+在您的 `Cartfile` 中添加：
+
+```
+github "HMWDavid/Chain-Swift" ~> 1.0.0
+```
+
+然后运行：
+
+```bash
+carthage update
+```
+
+### 手动安装
+
 请将 `ZKChain.swift` 文件添加到您的项目中
 
 ## 🎯 使用场景
@@ -95,6 +125,36 @@ ZKChain has been performance optimized using reference wrapper technology to avo
 - **Loop Scenarios**: Safe to use in loops with no performance issues
 
 ### 📦 Installation
+
+#### CocoaPods
+
+Add the following to your `Podfile`:
+
+```ruby
+pod 'Chain-Swift', '~> 1.0.0'
+```
+
+Then run:
+
+```bash
+pod install
+```
+
+#### Carthage
+
+Add the following to your `Cartfile`:
+
+```
+github "HMWDavid/Chain-Swift" ~> 1.0.0
+```
+
+Then run:
+
+```bash
+carthage update
+```
+
+#### Manual Installation
 
 Simply add the `ZKChain.swift` file to your project.
 
