@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
 
   spec.homepage     = "https://github.com/HMWDavid/Chain-Swift"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
-  spec.author       = { "洪绵卫" => "your-email@example.com" }
+  spec.author       = { "洪绵卫" => "244160918@qq.com" }
   
   spec.platform     = :ios, "9.0"
   spec.swift_version = "5.0"
