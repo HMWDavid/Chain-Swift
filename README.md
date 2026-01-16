@@ -16,6 +16,7 @@ ZKSetter 是一个用于实现链式设置的结构体，可以轻松地为对�
 - 🔄 **完全兼容**：支持类（引用类型）和结构体（值类型）
 - 📦 **零依赖**：纯 Swift 实现，无需额外依赖
 - 🎨 **UIKit 支持**：完美支持 UIKit 组件的链式设置
+- 🔧 **方法调用**：支持在链式调用中调用对象的方法，支持有/无参数、有/无返回值
 
 ## ⚡ 性能优化
 
@@ -32,7 +33,7 @@ ZKChain 经过性能优化，使用引用包装器技术避免了值类型在链
 在您的 `Podfile` 中添加：
 
 ```ruby
-pod 'Chain-Swift', '~> 1.0.0'
+pod 'Chain-Swift', '~> 2.0.0'
 ```
 
 然后运行：
@@ -46,7 +47,7 @@ pod install
 在您的 `Cartfile` 中添加：
 
 ```
-github "HMWDavid/Chain-Swift" ~> 1.0.0
+github "HMWDavid/Chain-Swift" ~> 2.0.0
 ```
 
 然后运行：
@@ -64,6 +65,7 @@ carthage update
 - ✅ 配置 UI 组件（UILabel、UIButton 等）
 - ✅ 初始化数据模型
 - ✅ 批量设置对象属性
+- ✅ 在链式调用中调用对象方法
 - ✅ 在循环中创建多个对象（已优化，性能无问题）
 
 ## 📖 使用示例
@@ -102,6 +104,44 @@ let label = UILabel().zk
     .subject // 获取到真正的对象
 self.view.addSubview(label)
 
+// 方法调用示例
+// 无参数、无返回值的方法
+_ = Student().zk
+    .name("张三")
+    .call { $0.printInfo() } // 调用无参数、无返回值的方法
+
+// 有参数、无返回值的方法
+_ = Student().zk
+    .call { $0.setName("李四") }
+    .call { $0.setAge(20) }
+    .name("王五") // 可以继续链式调用设置属性
+
+// 多个参数、无返回值的方法
+_ = Student().zk
+    .call { $0.updateInfo(name: "赵六", age: 22) }
+    .height(175.0)
+
+// 无参数、有返回值的方法
+let studentName = Student().zk
+    .name("钱七")
+    .call { $0.getName() } // 获取返回值
+print("学生姓名：\(studentName)")
+
+// 有参数、有返回值的方法
+let bmi = Student().zk
+    .weight(70.0)
+    .height(175.0)
+    .call { $0.calculateBMI(weight: 70.0, height: 175.0) } // 调用有参数、有返回值的方法
+print("BMI值：\(bmi)")
+
+// 混合使用：属性设置和方法调用
+_ = Student().zk
+    .name("孙八")
+    .age(25)
+    .call { $0.printInfo() } // 调用方法
+    .height(180.0)
+    .weight(75.0)
+
 ```
 
 
@@ -120,6 +160,7 @@ ZKSetter is a structure designed to implement chain setting, allowing for easy p
 - 🔄 **Full Compatibility**: Supports both classes (reference types) and structs (value types)
 - 📦 **Zero Dependencies**: Pure Swift implementation, no additional dependencies
 - 🎨 **UIKit Support**: Perfect support for UIKit component chain setting
+- 🔧 **Method Calling**: Support calling object methods in chain calls, with/without parameters and return values
 
 ### ⚡ Performance Optimization
 
@@ -136,7 +177,7 @@ ZKChain has been performance optimized using reference wrapper technology to avo
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'Chain-Swift', '~> 1.0.0'
+pod 'Chain-Swift', '~> 2.0.0'
 ```
 
 Then run:
@@ -150,7 +191,7 @@ pod install
 Add the following to your `Cartfile`:
 
 ```
-github "HMWDavid/Chain-Swift" ~> 1.0.0
+github "HMWDavid/Chain-Swift" ~> 2.0.0
 ```
 
 Then run:
@@ -168,6 +209,7 @@ Simply add the `ZKChain.swift` file to your project.
 - ✅ Configure UI components (UILabel, UIButton, etc.)
 - ✅ Initialize data models
 - ✅ Batch set object properties
+- ✅ Call object methods in chain calls
 - ✅ Create multiple objects in loops (optimized, no performance issues)
 
 ### 📖 Usage Example
@@ -205,6 +247,44 @@ let label = UILabel().zk
     .frame(CGRect(x: 200, y: 300, width: 200, height: 50))
     .subject // Get the actual object
 self.view.addSubview(label)
+
+// Method Calling Examples
+// Method with no parameters and no return value
+_ = Student().zk
+    .name("Zhang San")
+    .call { $0.printInfo() } // Call method with no parameters and no return value
+
+// Method with parameters and no return value
+_ = Student().zk
+    .call { $0.setName("Li Si") }
+    .call { $0.setAge(20) }
+    .name("Wang Wu") // Can continue chain calls to set properties
+
+// Method with multiple parameters and no return value
+_ = Student().zk
+    .call { $0.updateInfo(name: "Zhao Liu", age: 22) }
+    .height(175.0)
+
+// Method with no parameters and return value
+let studentName = Student().zk
+    .name("Qian Qi")
+    .call { $0.getName() } // Get return value
+print("Student name: \(studentName)")
+
+// Method with parameters and return value
+let bmi = Student().zk
+    .weight(70.0)
+    .height(175.0)
+    .call { $0.calculateBMI(weight: 70.0, height: 175.0) } // Call method with parameters and return value
+print("BMI value: \(bmi)")
+
+// Mixed usage: property setting and method calling
+_ = Student().zk
+    .name("Sun Ba")
+    .age(25)
+    .call { $0.printInfo() } // Call method
+    .height(180.0)
+    .weight(75.0)
 ```
 
 

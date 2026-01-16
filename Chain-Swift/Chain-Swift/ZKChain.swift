@@ -43,6 +43,24 @@ public struct ZKSetter<Subject> {
         }
     }
     
+    // MARK: - 方法调用支持
+    
+    /// 调用无参数、无返回值的函数（使用闭包）
+    /// - Parameter closure: 接受 Subject 并执行操作的闭包
+    /// - Returns: 返回 ZKSetter 以支持链式调用
+    @discardableResult
+    public func call(_ closure: (Subject) -> Void) -> ZKSetter<Subject> {
+        closure(subjectRef.value)
+        return ZKSetter(subjectRef: subjectRef)
+    }
+    
+    /// 调用有返回值的函数（使用闭包）
+    /// - Parameter closure: 接受 Subject 并返回值的闭包
+    /// - Returns: 返回方法的返回值
+    public func call<R>(_ closure: (Subject) -> R) -> R {
+        return closure(subjectRef.value)
+    }
+    
     // 私有初始化器，用于共享引用包装器（避免重复创建）
     private init(subjectRef: ReferenceWrapper<Subject>) {
         self.subjectRef = subjectRef

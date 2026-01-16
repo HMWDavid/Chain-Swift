@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "Chain-Swift"
-  spec.version      = "1.0.0"
+  spec.version      = "2.0.0"
   spec.summary      = "Chain-Swift 在 Swift 中优雅的启用链式语法调用"
   spec.description  = <<-DESC
   ZKSetter 是一个用于实现链式设置的结构体，可以轻松地为对象的属性赋值。通过动态成员查找，用户可以方便地使用流畅的 API。
