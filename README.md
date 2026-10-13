@@ -28,12 +28,16 @@ ZKChain 经过性能优化，使用引用包装器技术避免了值类型在链
 
 ## 📦 安装
 
+### 手动安装（推荐）
+
+**推荐使用手动安装**：将 `ZKChain.swift` 文件添加到您的项目中即可，简单可靠，无额外依赖。
+
 ### CocoaPods
 
 在您的 `Podfile` 中添加：
 
 ```ruby
-pod 'Chain-Swift', '~> 2.0.0'
+pod 'Chain-Swift', '~> 2.0.0', :git => 'https://github.com/HMWDavid/Chain-Swift'
 ```
 
 然后运行：
@@ -55,10 +59,6 @@ github "HMWDavid/Chain-Swift" ~> 2.0.0
 ```bash
 carthage update
 ```
-
-### 手动安装
-
-请将 `ZKChain.swift` 文件添加到您的项目中
 
 ## 🎯 使用场景
 
@@ -172,12 +172,16 @@ ZKChain has been performance optimized using reference wrapper technology to avo
 
 ### 📦 Installation
 
+#### Manual Installation (Recommended)
+
+**Manual installation is recommended**: simply add the `ZKChain.swift` file to your project — simple, reliable, and zero extra dependencies.
+
 #### CocoaPods
 
 Add the following to your `Podfile`:
 
 ```ruby
-pod 'Chain-Swift', '~> 2.0.0'
+pod 'Chain-Swift', '~> 2.0.0', :git => 'https://github.com/HMWDavid/Chain-Swift'
 ```
 
 Then run:
@@ -199,10 +203,6 @@ Then run:
 ```bash
 carthage update
 ```
-
-#### Manual Installation
-
-Simply add the `ZKChain.swift` file to your project.
 
 ### 🎯 Use Cases
 
